@@ -1,0 +1,117 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-dm-sans), system-ui, sans-serif;
+  --font-serif: var(--font-playfair), Georgia, serif;
+}
+
+body {
+  background-color: #F0EBE1;
+  color: #1a1714;
+  font-family: var(--font-sans);
+}
+
+/* ── Nav links ──────────────────────────────────────────────────────────── */
+
+.nav-link {
+  transition: color 0.15s ease;
+}
+.nav-link:hover {
+  color: #C4622D !important;
+}
+
+/* ── Mobile nav ─────────────────────────────────────────────────────────── */
+
+.nav-hamburger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  color: #1A1410;
+  font-size: 1.2rem;
+  line-height: 1;
+}
+.nav-mobile-menu {
+  display: none;
+  flex-direction: column;
+  border-top: 1px solid #DDD5C8;
+}
+.nav-mobile-menu.open {
+  display: flex;
+}
+
+@media (max-width: 640px) {
+  .nav-hamburger {
+    display: block;
+  }
+}
+
+/* ── Cafe page ───────────────────────────────────────────────────────────── */
+
+.cafe-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+@media (max-width: 600px) {
+  .cafe-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cafe-card:hover {
+  border-color: #C4622D !important;
+}
+
+/* Full-height map on mobile */
+@media (max-width: 640px) {
+  .cafe-map-container {
+    height: 100dvh !important;
+    min-height: unset !important;
+  }
+}
+
+/* Mapbox popup — strip default chrome */
+.mapboxgl-popup-content {
+  padding: 0 !important;
+  background: transparent !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+.mapboxgl-popup-tip {
+  display: none !important;
+}
+
+/* Mapbox nav controls — warm them up */
+.mapboxgl-ctrl-group {
+  border-radius: 0 !important;
+  border: 1px solid #DDD5C8 !important;
+  box-shadow: none !important;
+}
+.mapboxgl-ctrl-group button {
+  background-color: #F0EBE1 !important;
+}
+
+/* ── Footer ─────────────────────────────────────────────────────────────── */
+
+.footer-nav-link {
+  transition: color 0.15s ease;
+}
+.footer-nav-link:hover {
+  color: #C4622D !important;
+}
+.footer-soft-link {
+  transition: color 0.15s ease;
+}
+.footer-soft-link:hover {
+  color: #C4622D !important;
+}
+
+@media (max-width: 600px) {
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2.5rem !important;
+  }
+}

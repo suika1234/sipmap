@@ -1,0 +1,72 @@
+[
+  {
+    "id": "001",
+    "name": "Sanu Nowhere",
+    "neighborhood": "Nakameguro",
+    "latitude": 35.6422,
+    "longitude": 139.7001,
+    "google_maps_url": "https://www.google.com/maps/search/?q=Sanu+Nowhere+3-23-16+Nakameguro+Meguro+Tokyo",
+    "erika_short": "Same brand behind the off-grid cabin retreats, and the space carries that sensibility — intentionally designed, quiet in a way that doesn't feel performative. The coffee is good and the wifi actually works, which makes it one of the better options in Nakameguro if you need to get something done. Better in the morning before it fills up.",
+    "badges": ["wifi"]
+  },
+  {
+    "id": "002",
+    "name": "Verve Coffee Roasters",
+    "neighborhood": "Roppongi",
+    "latitude": 35.6627,
+    "longitude": 139.7303,
+    "google_maps_url": "https://www.google.com/maps/search/?q=Verve+Coffee+Roasters+5-16-7+Roppongi+Minato+Tokyo",
+    "erika_short": "A California roaster that translates well to Tokyo — light-roast-forward, precise, worth going out of your way for if that's your thing. One caveat: wifi is limited here, so if you're planning to work, keep your expectations low or bring your own hotspot. Come for the coffee, not the setup.",
+    "badges": ["wifi"]
+  },
+  {
+    "id": "003",
+    "name": "Good Sound Coffee",
+    "neighborhood": "Nakameguro",
+    "latitude": 35.6412,
+    "longitude": 139.6995,
+    "google_maps_url": "https://www.google.com/maps/search/?q=Good+Sound+Coffee+1-6-5+Kamimeguro+Meguro+Tokyo",
+    "erika_short": "The name is straightforward and so is the place — music is taken seriously here in a way that's noticeable but not precious about it. Reliable wifi, enough outlets to actually use, and the kind of room where you can sit for a few hours without feeling like you're overstaying. Goes to a different crowd in the evening.",
+    "badges": ["wifi", "plugs"]
+  },
+  {
+    "id": "004",
+    "name": "Berth Coffee",
+    "neighborhood": "Ningyocho",
+    "latitude": 35.6848,
+    "longitude": 139.7862,
+    "google_maps_url": "https://www.google.com/maps?cid=12256368811191862656",
+    "erika_short": "Connected to an international hostel, which gives it an energy most Tokyo cafes don't have — you get a real mix of people passing through. Great place to get work done during the day, and on Friday and Saturday nights it turns into a DJ bar. Wifi is solid and the vibe shifts dramatically depending on when you show up.",
+    "badges": ["wifi"]
+  },
+  {
+    "id": "005",
+    "name": "Miyano-yu",
+    "neighborhood": "Nezu",
+    "latitude": 35.7188,
+    "longitude": 139.7628,
+    "google_maps_url": "https://www.google.com/maps/search/?q=matcha+espresso+miyano-yu+2-19-8+Nezu+Bunkyo+Tokyo",
+    "erika_short": "It used to be a public bathhouse — the high ceilings and tiled architecture make that immediately obvious. Now it's a cafe, and one of the more unusual rooms in Tokyo to spend an afternoon in. Nezu is exactly the right neighborhood for something like this to exist.",
+    "badges": ["wifi"]
+  },
+  {
+    "id": "006",
+    "name": "Hatto Coffee",
+    "neighborhood": "Shibuya",
+    "latitude": 35.6592,
+    "longitude": 139.7038,
+    "google_maps_url": "https://www.google.com/maps/search/?q=Hatto+Coffee+2-18-19+Jingumae+Shibuya+Tokyo",
+    "erika_short": "Once you're inside it doesn't feel like Shibuya at all, which is most of why I keep coming back. Good outlets, solid wifi, and a morning crowd that's there to actually work rather than be seen working. I've started more than a few productive days here before things got away from me.",
+    "badges": ["wifi", "plugs"]
+  },
+  {
+    "id": "007",
+    "name": "The Roastery by Nozy Coffee",
+    "neighborhood": "Shibuya",
+    "latitude": 35.6653,
+    "longitude": 139.6951,
+    "google_maps_url": "https://www.google.com/maps?cid=14377700849968291546",
+    "erika_short": "One of the better all-day options in this part of the city — the coffee program is serious and people stay for hours without anyone minding. Sit outside if the weather is right, especially late morning when the light is good and the street hasn't gotten too loud yet. The outdoor seats go fast on weekends.",
+    "badges": ["wifi", "specialty_coffee", "long_stay"]
+  }
+]
