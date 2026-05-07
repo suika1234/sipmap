@@ -68,5 +68,66 @@
     "google_maps_url": "https://www.google.com/maps?cid=14377700849968291546",
     "erika_short": "One of the better all-day options in this part of the city — the coffee program is serious and people stay for hours without anyone minding. Sit outside if the weather is right, especially late morning when the light is good and the street hasn't gotten too loud yet. The outdoor seats go fast on weekends.",
     "badges": ["wifi", "specialty_coffee", "long_stay"]
+  },
+  {
+    "id": "008",
+    "name": "Clove Bakery & Cafe",
+    "neighborhood": "Omotesando",
+    "latitude": 35.6675,
+    "longitude": 139.7121,
+    "google_maps_url": "https://www.google.com/maps/search/?q=Clove+Bakery+Cafe+Omotesando+Tokyo",
+    "erika_short": "A calm Omotesando bakery cafe that works surprisingly well as a daytime work spot. Good wifi, enough outlets, and a pastry lineup that's dangerous if you're trying to stay focused. Feels more local and understated than most cafes in the area.",
+    "badges": ["wifi", "plugs", "bakery"]
+  },
+  {
+    "id": "009",
+    "name": "Blue Bottle Coffee",
+    "neighborhood": "Kiyosumi Shirakawa",
+    "latitude": 35.6798,
+    "longitude": 139.7994,
+    "google_maps_url": "https://www.google.com/maps/search/?q=Blue+Bottle+Coffee+Kiyosumi+Shirakawa+Tokyo",
+    "erika_short": "The Japan flagship that helped define Tokyo's third-wave coffee era for a lot of people. The warehouse-like space still feels iconic years later — high ceilings, natural light, and a slower atmosphere than most central Tokyo cafes. Worth visiting at least once even if you've been to Blue Bottle elsewhere.",
+    "badges": ["wifi", "specialty_coffee"]
+  },
+  {
+    "id": "010",
+    "name": "Streamer Coffee Company",
+    "neighborhood": "Shibuya",
+    "latitude": 35.6595,
+    "longitude": 139.7016,
+    "google_maps_url": "https://www.google.com/maps/search/?q=Streamer+Coffee+Company+Shibuya+Tokyo",
+    "erika_short": "One of those rare Tokyo cafes that actually feels social. People come here to work, meet friends, have long conversations, or just stay for a while without rushing. Plenty of outlets, reliable wifi, outdoor seating, and a more community-oriented energy than the average specialty coffee shop.",
+    "badges": ["wifi", "plugs", "outside_seating", "meet_people"]
+  },
+  {
+    "id": "011",
+    "name": "Good Sound Coffee",
+    "neighborhood": "Nakameguro",
+    "latitude": 35.6412,
+    "longitude": 139.6995,
+    "google_maps_url": "https://www.google.com/maps/search/?q=Good+Sound+Coffee+Nakameguro+Tokyo",
+    "erika_short": "A cafe built around music culture without turning it into a gimmick. Reliable wifi, solid outlets, outdoor seating, and one of the better schedules in Tokyo if you're an early or late worker — open from 8am to 11pm. The crowd shifts noticeably throughout the day, which keeps the space interesting.",
+    "badges": ["wifi", "plugs", "outside_seating", "early_open", "late_open"]
+  },
+  {
+    "id": "012",
+    "name": "Overday Coffee",
+    "neighborhood": "Aobadai",
+    "latitude": 35.6524,
+    "longitude": 139.6925,
+    "google_maps_url": "https://www.google.com/maps/search/?q=Overday+Coffee+Aobadai+Tokyo",
+    "cover_image": true,
+    "erika_short": "Minimal in a way that actually feels warm rather than sterile. Quiet, aesthetic, and especially good in the morning before the neighborhood fully wakes up. Good place to focus for a few hours, and you should absolutely order their signature off-white cream coffee at least once.",
+    "badges": ["wifi", "plugs", "quiet", "aesthetic", "early_open"]
+  },
+  {
+    "id": "013",
+    "name": "Or Coffee",
+    "neighborhood": "Tokyo",
+    "latitude": 35.6660,
+    "longitude": 139.7080,
+    "google_maps_url": "https://www.google.com/maps/search/?q=Or+Coffee+Tokyo",
+    "erika_short": "Small and intimate in the way tiny Tokyo coffee shops sometimes are — more like stepping into someone's world than a cafe. Quietly stylish crowd, strong coffee, and the unexpected detail: there's a tattoo parlor hidden in the back. Feels like the kind of place you'd accidentally spend two hours in.",
+    "badges": ["wifi", "plugs", "small_space"]
   }
 ]
