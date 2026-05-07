@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Tokyo Cafe Map</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: #F0EBE1;
+      color: #1a1714;
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .page {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 4rem 2rem 6rem;
+    }
+
+    h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+
+    .subtitle {
+      font-style: italic;
+      color: #C4622D;
+      margin-top: 0.4rem;
+      font-size: 1rem;
+    }
+
+    hr {
+      border: none;
+      border-top: 1.5px solid #C4622D;
+      margin: 1.5rem 0 1.75rem;
+    }
+
+    .intro {
+      font-size: 1rem;
+      color: #1a1714;
+      max-width: 680px;
+      margin-bottom: 2.25rem;
+    }
+
+    /* Filter buttons */
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .filter-btn {
+      padding: 0.45rem 1rem;
+      border: 1.5px solid #1a1714;
+      background: transparent;
+      color: #1a1714;
+      font-family: inherit;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.12s, color 0.12s;
+    }
+
+    .filter-btn.active,
+    .filter-btn:hover {
+      background: #1a1714;
+      color: #F0EBE1;
+    }
+
+    /* Cafe grid */
+    .cafe-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 2rem; }
+      .cafe-grid { grid-template-columns: 1fr; }
+    }
+
+    .cafe-card {
+      background: #F7F3EC;
+      border: 1.5px solid #DDD5C8;
+      padding: 1.5rem;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      transition: border-color 0.15s;
+    }
+
+    .cafe-card:hover {
+      border-color: #C4622D;
+    }
+
+    .cafe-neighborhood {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #9A7B62;
+      margin-bottom: 0.4rem;
+    }
+
+    .cafe-name {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      line-height: 1.2;
+    }
+
+    .cafe-desc {
+      font-size: 0.875rem;
+      color: #3d342c;
+      line-height: 1.65;
+    }
+
+    .cafe-footer {
+      margin-top: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .cafe-badges {
+      display: flex;
+      gap: 0.35rem;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #9A7B62;
+      border: 1px solid #DDD5C8;
+      padding: 0.2rem 0.45rem;
+    }
+
+    .map-link {
+      font-size: 0.75rem;
+      color: #9A7B62;
+      text-decoration: none;
+      border-bottom: 1px solid #DDD5C8;
+      white-space: nowrap;
+    }
+
+    .map-link:hover {
+      color: #C4622D;
+      border-color: #C4622D;
+    }
+
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <h1>The Tokyo Cafe Map</h1>
+    <p class="subtitle">Cafes worth going to, curated by Erika.</p>
+
+    <hr />
+
+    <p class="intro">Tokyo has no shortage of cafes. These are the ones I keep coming back to — for the coffee, the room, or just because they're the right place to be on a given afternoon.</p>
+
+    <div class="filters" id="filters">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="nakameguro">Nakameguro</button>
+      <button class="filter-btn" data-filter="nezu">Nezu</button>
+      <button class="filter-btn" data-filter="ningyocho">Ningyocho</button>
+      <button class="filter-btn" data-filter="roppongi">Roppongi</button>
+      <button class="filter-btn" data-filter="shibuya">Shibuya</button>
+    </div>
+
+    <div class="cafe-grid" id="cafe-grid"></div>
+  </div>
+
+  <script>
+    const cafes = [
+      {
+        id: "001",
+        name: "Sanu Nowhere",
+        neighborhood: "Nakameguro",
+        google_maps_url: "https://www.google.com/maps/search/?q=Sanu+Nowhere+3-23-16+Nakameguro+Meguro+Tokyo",
+        erika_short: "Same brand behind the off-grid cabin retreats, and the space carries that sensibility — intentionally designed, quiet in a way that doesn't feel performative. The coffee is good and the wifi actually works, which makes it one of the better options in Nakameguro if you need to get something done. Better in the morning before it fills up.",
+        badges: ["wifi"]
+      },
+      {
+        id: "002",
+        name: "Verve Coffee Roasters",
+        neighborhood: "Roppongi",
+        google_maps_url: "https://www.google.com/maps/search/?q=Verve+Coffee+Roasters+5-16-7+Roppongi+Minato+Tokyo",
+        erika_short: "A California roaster that translates well to Tokyo — light-roast-forward, precise, worth going out of your way for if that's your thing. One caveat: wifi is limited here, so if you're planning to work, keep your expectations low or bring your own hotspot. Come for the coffee, not the setup.",
+        badges: ["wifi"]
+      },
+      {
+        id: "003",
+        name: "Good Sound Coffee",
+        neighborhood: "Nakameguro",
+        google_maps_url: "https://www.google.com/maps/search/?q=Good+Sound+Coffee+1-6-5+Kamimeguro+Meguro+Tokyo",
+        erika_short: "The name is straightforward and so is the place — music is taken seriously here in a way that's noticeable but not precious about it. Reliable wifi, enough outlets to actually use, and the kind of room where you can sit for a few hours without feeling like you're overstaying. Goes to a different crowd in the evening.",
+        badges: ["wifi", "plugs"]
+      },
+      {
+        id: "004",
+        name: "Berth Coffee",
+        neighborhood: "Ningyocho",
+        google_maps_url: "https://www.google.com/maps?cid=12256368811191862656",
+        erika_short: "Connected to an international hostel, which gives it an energy most Tokyo cafes don't have — you get a real mix of people passing through. Great place to get work done during the day, and on Friday and Saturday nights it turns into a DJ bar. Wifi is solid and the vibe shifts dramatically depending on when you show up.",
+        badges: ["wifi"]
+      },
+      {
+        id: "005",
+        name: "Miyano-yu",
+        neighborhood: "Nezu",
+        google_maps_url: "https://www.google.com/maps/search/?q=matcha+espresso+miyano-yu+2-19-8+Nezu+Bunkyo+Tokyo",
+        erika_short: "It used to be a public bathhouse — the high ceilings and tiled architecture make that immediately obvious. Now it's a cafe, and one of the more unusual rooms in Tokyo to spend an afternoon in. Nezu is exactly the right neighborhood for something like this to exist.",
+        badges: ["wifi"]
+      },
+      {
+        id: "006",
+        name: "Hatto Coffee",
+        neighborhood: "Shibuya",
+        google_maps_url: "https://www.google.com/maps/search/?q=Hatto+Coffee+2-18-19+Jingumae+Shibuya+Tokyo",
+        erika_short: "Once you're inside it doesn't feel like Shibuya at all, which is most of why I keep coming back. Good outlets, solid wifi, and a morning crowd that's there to actually work rather than be seen working. I've started more than a few productive days here before things got away from me.",
+        badges: ["wifi", "plugs"]
+      },
+      {
+        id: "007",
+        name: "The Roastery by Nozy Coffee",
+        neighborhood: "Shibuya",
+        google_maps_url: "https://www.google.com/maps?cid=14377700849968291546",
+        erika_short: "One of the better all-day options in this part of the city — the coffee program is serious and people stay for hours without anyone minding. Sit outside if the weather is right, especially late morning when the light is good and the street hasn't gotten too loud yet. The outdoor seats go fast on weekends.",
+        badges: ["wifi", "specialty_coffee", "long_stay"]
+      }
+    ];
+
+    const BADGE_LABELS = {
+      wifi: "Wi-Fi",
+      plugs: "Outlets",
+      specialty_coffee: "Specialty",
+      long_stay: "Long stay"
+    };
+
+    function renderCafes(filter) {
+      const grid = document.getElementById("cafe-grid");
+      const visible = filter === "all"
+        ? cafes
+        : cafes.filter(c => c.neighborhood.toLowerCase() === filter);
+
+      grid.innerHTML = visible.map(cafe => `
+        <div class="cafe-card" data-neighborhood="${cafe.neighborhood.toLowerCase()}">
+          <div class="cafe-neighborhood">${cafe.neighborhood}</div>
+          <div class="cafe-name">${cafe.name}</div>
+          <p class="cafe-desc">${cafe.erika_short}</p>
+          <div class="cafe-footer">
+            <div class="cafe-badges">
+              ${cafe.badges.map(b => `<span class="badge">${BADGE_LABELS[b] || b}</span>`).join("")}
+            </div>
+            <a class="map-link" href="${cafe.google_maps_url}" target="_blank" rel="noopener">Map ↗</a>
+          </div>
+        </div>
+      `).join("");
+    }
+
+    document.getElementById("filters").addEventListener("click", e => {
+      const btn = e.target.closest(".filter-btn");
+      if (!btn) return;
+      document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      renderCafes(btn.dataset.filter);
+    });
+
+    renderCafes("all");
+  </script>
+</body>
+</html>
