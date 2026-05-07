@@ -101,16 +101,6 @@
   },
   {
     "id": "011",
-    "name": "Good Sound Coffee",
-    "neighborhood": "Nakameguro",
-    "latitude": 35.6412,
-    "longitude": 139.6995,
-    "google_maps_url": "https://www.google.com/maps/search/?q=Good+Sound+Coffee+Nakameguro+Tokyo",
-    "erika_short": "A cafe built around music culture without turning it into a gimmick. Reliable wifi, solid outlets, outdoor seating, and one of the better schedules in Tokyo if you're an early or late worker — open from 8am to 11pm. The crowd shifts noticeably throughout the day, which keeps the space interesting.",
-    "badges": ["wifi", "plugs", "outside_seating", "early_open", "late_open"]
-  },
-  {
-    "id": "012",
     "name": "Overday Coffee",
     "neighborhood": "Aobadai",
     "latitude": 35.6524,
@@ -121,7 +111,7 @@
     "badges": ["wifi", "plugs", "quiet", "aesthetic", "early_open"]
   },
   {
-    "id": "013",
+    "id": "012",
     "name": "Or Coffee",
     "neighborhood": "Tokyo",
     "latitude": 35.6660,
